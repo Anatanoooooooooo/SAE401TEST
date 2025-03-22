@@ -1,1 +1,245 @@
-<p>home works!</p>
+
+  <!-- Hero Section -->
+  <div class="main-content container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-content">
+        <h1>Bienvenue sur LOTE</h1>
+        <p>Apprenez le Code de la route et préparez votre permis en ligne, à votre rythme.</p>
+        <a href="./partie_eleve/recherche_autoecole.html" class="btn btn-autoecole mt-3">Rechercher une auto-école</a>
+      </div>      
+      <div class="col-md-6 position-relative d-flex justify-content-center">
+        <div class="circle position-absolute"></div>
+        <img src="erasebg-transformed 1.png" alt="Voiture auto-école" class="car-image" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 stat">
+          <div><span class="plus">+</span><span class="number" data-target="70">0</span></div>
+          <p>Salariés</p>
+        </div>
+        <div class="col-12 col-md-4 stat">
+          <div><span class="plus">+</span><span class="number" data-target="6000">0</span></div>
+          <p>Auto-École</p>
+        </div>
+        <div class="col-12 col-md-4 stat">
+          <div><span class="plus">+</span><span class="number" data-target="500000">0</span></div>
+          <p>Élèves</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="success-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Image -->
+        <div class="col-md-6 position-relative text-center mb-4 mb-md-0">
+          <div class="image-wrapper">
+            <img src="image 2.png" alt="Réussite code" class="img-fluid main-img">
+            <div class="yellow-bg-shape"></div>
+          </div>
+        </div>
+  
+        <!-- Texte + cercle -->
+<!-- Texte + cercle côte à côte -->
+<div class="col-md-6">
+  <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-4 flex-wrap flex-md-nowrap">
+    <div class="text-end text-md-start">
+      <h2 class="fw-bold mb-2">Taux de réussite</h2>
+      <p class="mb-0">à l’examen du code</p>
+    </div>
+    <div class="success-circle">
+      <span>92%</span>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+  </section>
+  <section class="locations-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-normal">À chaque tournant, une agence à portée de main</h2>
+      <div class="row justify-content-center g-4">
+        
+        <!-- Carte 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="location-card p-3 text-center shadow-sm">
+            <img src="VIDEO_histoire_tour_Eiffel-927x618 1.png" alt="Grande Villes" class="img-fluid rounded-top mb-3">
+            <h5 class="fw-bold">ILE DE FRANCE ET GRANDE VILLES</h5>
+            <ul class="list-unstyled mt-3">
+              <li><span class="icon">✔️</span> Paris,75000</li>
+              <li><span class="icon">✔️</span> Toulouse,31000</li>
+              <li><span class="icon">✔️</span> Marseille,13000</li>
+              <li><span class="icon">✔️</span> Lyon,69000</li>
+            </ul>
+            <div class="dots">● ● ●</div>
+          </div>
+        </div>
+  
+        <!-- Carte 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="location-card p-3 text-center shadow-sm">
+            <img src="image.png" alt="Régions urbaines" class="img-fluid rounded-top mb-3">
+            <h5 class="fw-bold">REGIONS URBAINES</h5>
+            <ul class="list-unstyled mt-3">
+              <li><span class="icon">✔️</span> Rennes,35000</li>
+              <li><span class="icon">✔️</span> Grenoble</li>
+              <li><span class="icon">✔️</span> Angers,49000</li>
+              <li><span class="icon">✔️</span> Dijon,21000</li>
+            </ul>
+            <div class="dots">● ● ●</div>
+          </div>
+        </div>
+  
+        <!-- Carte 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="location-card p-3 text-center shadow-sm">
+            <img src="image (1).png" alt="Campagne" class="img-fluid rounded-top mb-3">
+            <h5 class="fw-bold">CAMPAGNE ET ZONES RURALES</h5>
+            <ul class="list-unstyled mt-3">
+              <li><span class="icon">✔️</span> Issanlas,07510</li>
+              <li><span class="icon">✔️</span> Claret,05110</li>
+              <li><span class="icon">✔️</span> Piégut,05130</li>
+              <li><span class="icon">✔️</span> Pontis,05160</li>
+            </ul>
+            <div class="dots">● ● ●</div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- JavaScript for Counter -->
+  <script>
+    const counters = document.querySelectorAll('.number');
+    const options = {
+      threshold: 0.5
+    };
+
+    const startCounter = (entry) => {
+      const counter = entry.target;
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const speed = 100;
+
+      const update = () => {
+        const increment = Math.ceil(target / speed);
+        if (count < target) {
+          count += increment;
+          counter.innerText = count.toLocaleString('fr-FR');
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target.toLocaleString('fr-FR');
+        }
+      };
+
+      update();
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startCounter(entry);
+          obs.unobserve(entry.target); // une seule fois
+        }
+      });
+    }, options);
+
+    counters.forEach(counter => observer.observe(counter));
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Animation au scroll pour success-section + stats-section
+    const animatedElements = document.querySelectorAll('.stat, .image-wrapper, .success-circle');
+  
+    const animObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+  
+    animatedElements.forEach(el => {
+      el.style.animationPlayState = 'paused';
+      animObserver.observe(el);
+    });
+  </script>
+  <section class="map-section py-5">
+    <div class="container text-center">
+      <h2 class="mb-4 fw-normal">À chaque tournant, une agence à portée de main</h2>
+      <div class="ratio ratio-16x9 rounded shadow">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999830136779!2d2.294481315673438!3d48.85837007928737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdd62e6d13b%3A0x4b9e3a4e6fba2f1f!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1678735916359!5m2!1sfr!2sfr" 
+          width="600" 
+          height="450" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+  
+ <!-- Témoignages Section -->
+<section class="review-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Texte + étoiles -->
+      <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+        <h2>Ils nous font <strong>confiance</strong></h2>
+        <p class="text-muted">+450 000 d’élèves satisfaits</p>
+        <div class="stars">
+          ⭐ ⭐ ⭐ ⭐ ⭐
+        </div>
+      </div>
+
+      <!-- Avis clients -->
+      <div class="col-md-6">
+        <div class="review-grid bg-black text-white p-4 rounded-4">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="review-card bg-white text-dark p-3 rounded-4">
+                <p>Super auto école ! La meilleure du Var ! Les moniteurs sont au top.</p>
+                <small>Jonathan R. le 22/01/2025</small><br/>
+                <span class="stars">⭐ ⭐ ⭐ ⭐ ⭐</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="review-card bg-white text-dark p-3 rounded-4">
+                <p>Super auto école ! La meilleure du Var ! Les moniteurs sont au top.</p>
+                <small>Jonathan R. le 22/01/2025</small><br/>
+                <span class="stars">⭐ ⭐ ⭐ ⭐ ⭐</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="review-card bg-white text-dark p-3 rounded-4">
+                <p>Super auto école ! La meilleure du Var ! Les moniteurs sont au top.</p>
+                <small>Jonathan R. le 22/01/2025</small><br/>
+                <span class="stars">⭐ ⭐ ⭐ ⭐ ⭐</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="review-card bg-white text-dark p-3 rounded-4">
+                <p>Super auto école ! La meilleure du Var ! Les moniteurs sont au top.</p>
+                <small>Jonathan R. le 22/01/2025</small><br/>
+                <span class="stars">⭐ ⭐ ⭐ ⭐ ⭐</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

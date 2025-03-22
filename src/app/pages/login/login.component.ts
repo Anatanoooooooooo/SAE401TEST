@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   standalone: false,
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
+
 })
 export class LoginComponent {
   data: any[] = [];
@@ -18,7 +19,12 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.getDataFromApi();
+    this.animateTrafficLight()
   }
+
+//*****************************************************************************//
+
+// API 
 
   getDataFromApi(): void {
     this.loginService.getData().subscribe(response => {
@@ -53,5 +59,27 @@ redirectUser(role: string): void {
         break;
     }
   }
+
+  // API
+
+//*****************************************************************************//
+
+  // CSS
+
+  animateTrafficLight(): void {
+    const lights = document.querySelectorAll('.light');
+    let index = 0;
+
+    function changeLight() {
+      lights.forEach(light => light.classList.remove('active'));
+      lights[index].classList.add('active');
+      index = (index + 1) % lights.length;
+    }
+
+    changeLight();
+    setInterval(changeLight, 1000);
+  }
+
+  // CSS
 
 }

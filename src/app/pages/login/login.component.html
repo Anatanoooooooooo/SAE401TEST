@@ -1,9 +1,31 @@
-<div class="login-container">
-    <h2>Connexion</h2>
-    <form (submit)="onSubmit()">
-      <input type="text" placeholder="Nom d'utilisateur" [(ngModel)]="login" name="login" required>
-      <input type="password" placeholder="Mot de passe" [(ngModel)]="mdp" name="mdp" required>
-      <button type="submit">Se connecter</button>
-    </form>
-    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-  </div>
+<div class="container">
+  <header>
+    <img src="logo noir.png" alt="LOTE logo">
+  </header>
+
+  <main>
+    <div class="left">
+      <div class="traffic-light">
+        <div class="light red"></div>
+        <div class="light orange"></div>
+        <div class="light green"></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="form-container">
+        <h2>connexion</h2>
+        <form (submit)="onSubmit()">
+          <input type="text" placeholder="Nom d'utilisateur" [(ngModel)]="login" name="login" required>
+          <input type="password" placeholder="Mot de passe" [(ngModel)]="mdp" name="mdp" required>
+          <div class="buttons">
+            <button class="login" type="submit">Se connecter</button>
+            <button class="cancel" aria-current="page" routerLink="/home" routerLinkActive="active">Annuler</button>
+          </div>
+          
+        </form>
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+        </div>
+    </div>
+  </main>
+</div>

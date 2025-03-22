@@ -1,0 +1,81 @@
+/* ---------- HEADER ---------- */
+
+header {
+    background-color: #000;
+    padding: 20px 40px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .btn-connexion {
+    background-color: #eae6d8;
+  }
+
+  .btn-inscription {
+    background-color: #d6ae2c;
+    color: white;
+  }
+
+/* ---------- BOUTONS ---------- */
+  .btn-connexion, .btn-inscription {
+    transition: all 0.3s ease;
+  }
+  
+  .btn-connexion:hover {
+    background-color: #d6ae2c;
+    color: white;
+  }
+  
+  .btn-inscription:hover {
+    background-color: #eae6d8;
+    color: #000;
+  }
+  
+  nav button {
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav .logout {
+    background-color: #facc15;
+    color: black;
+  }
+  
+  nav button:hover {
+    opacity: 0.9;
+  }
+
+  .navbar-buttons a {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+  }
+  
+  .navbar-buttons a.logout {
+    background-color: #facc15;
+    color: black;
+  }
+  
+  .navbar-buttons a:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  } 
+
+
+
+  
