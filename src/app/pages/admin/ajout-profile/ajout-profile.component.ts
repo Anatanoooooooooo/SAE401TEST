@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-ajout-profile',
   standalone: false,
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  templateUrl: './ajout-profile.component.html',
+  styleUrl: './ajout-profile.component.css'
 })
-export class DashboardComponent {
-
+export class AjoutProfileComponent {
 
   nomProfile: string = "Nom profile";
 
@@ -41,5 +39,5 @@ export class DashboardComponent {
   retour() {
     this.router.navigate(['/']);
   }
-}
 
+}

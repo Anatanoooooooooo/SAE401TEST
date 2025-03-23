@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AjoutProfileComponent } from './pages/admin/ajout-profile/ajout-profile.component';
+import { ModifierProfileComponent } from './pages/admin/modifier-profile/modifier-profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FooterComponent } from './footer/footer.component';
     DashboardComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AjoutProfileComponent,
+    ModifierProfileComponent
   ],
   imports: [
     BrowserModule,
