@@ -15,7 +15,7 @@ _TD2_ - _TPC_
 
 ### COMPTE
 
-__CANDIDAT__  
+* CANDIDAT
 - login : test, mdp : test123
 
 __ADMIN__  
