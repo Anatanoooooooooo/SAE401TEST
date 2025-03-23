@@ -11,13 +11,16 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   showHeader: boolean = true;
   hideHeader: boolean = false;
-  private noHeaderRoutes: string[] = ['/login']; // Routes sans header
+  private noHeaderRoute: string[] = ['/login']; // Route sans header
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.router.events.subscribe(() => {
-      this.showHeader = !this.noHeaderRoutes.includes(this.router.url);
+      const noHeader = this.noHeaderRoute.includes(this.router.url);
+      this.showHeader = !noHeader;
+      this.hideHeader = noHeader;
+    
     });
   }
 
@@ -42,7 +45,7 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     localStorage.removeItem('user'); // Supprime le token utilisateur
-    this.router.navigate(['/login']); // Redirige vers la page de connexion
+    this.router.navigate(['/login']); // Redirige vers la page de login
   }
   
 

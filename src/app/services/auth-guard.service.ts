@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     if (user && user.role) {
       return true;
     } else {
-      this.router.navigate(['/login'], { replaceUrl: true}); // Redirection vers le login si pas connecté
+      this.router.navigate(['/home'], { replaceUrl: true}); // Redirection vers le login si pas connecté
       return false;
     }
   }

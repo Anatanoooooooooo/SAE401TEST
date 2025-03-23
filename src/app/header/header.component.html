@@ -1,57 +1,15 @@
 <div *ngIf="showHeader">
-
-  <div *ngIF="!isLogged() && !isCandidat() && !isAdmin()">
-    <div *ngIf="showHeader">
-      <!-- Header pour les utilisateurs non connectés -->
-      <header class="d-flex justify-content-between align-items-center">
-        <img src="logo_blanc.png" alt="LOTE logo" class="logo" />
-        <div class="d-flex gap-3">
-          <button class="btn btn-connexion rounded-pill px-4 py-2" aria-current="page" routerLink="/login" routerLinkActive="active">
-            Se connecter
-          </button>
-          <button class="btn btn-inscription rounded-pill px-4 py-2">S’inscrire</button>
-        </div>
-      </header>
+  <header class="d-flex justify-content-between align-items-center">
+    <img src="logo_blanc.png" alt="LOTE logo" class="logo" />
+    <div *ngIf="!isLogged()" class="d-flex gap-3">
+      <button class="btn btn-connexion rounded-pill px-4 py-2" routerLink="/login" routerLinkActive="active">Se connecter</button>
+      <button class="btn btn-inscription rounded-pill px-4 py-2">S’inscrire</button>
     </div>
-  </div>
-    <div *ngIF="isLogged() && isCandidat() && isAdmin()">
-      <div *ngIf="hideHeader">
-        <!-- Header pour les utilisateurs non connectés -->
-        <header class="d-flex justify-content-between align-items-center">
-          <img src="logo_blanc.png" alt="LOTE logo" class="logo" />
-          <div class="d-flex gap-3">
-            <button class="btn btn-connexion rounded-pill px-4 py-2" aria-current="page" routerLink="/login" routerLinkActive="active">
-              Se connecter
-            </button>
-            <button class="btn btn-inscription rounded-pill px-4 py-2">S’inscrire</button>
-          </div>
-        </header>
-      </div>
-    </div>
-      
-      
-      <div *ngIf="isLogged() && isCandidat()">
-        <!-- Header pour les utilisateurs connectés -->
-        <header class="d-flex justify-content-between align-items-center">
-          <img src="logo_blanc.png" alt="LOTE logo" class="logo" />
-          <nav class="navbar-buttons">
-            <a routerLink="/code" routerLinkActive="active">Code de la route</a>
-            <a routerLink="/simulation" routerLinkActive="active">Simulation</a>
-            <a routerLink="/auto-ecole" routerLinkActive="active">Mon Auto-École</a>
-            <a (click)="logout()">Se déconnecter</a>
-          </nav>
-        </header>
-      </div>
-
-      
-      <div *ngIf="isLogged() && isAdmin()">
-        <!-- Header pour les utilisateurs connectés -->
-        <header class="d-flex justify-content-between align-items-center">
-          <img src="logo_blanc.png" alt="LOTE logo" class="logo" />
-          <nav class="navbar-buttons">
-            <a (click)="logout()">Se déconnecter</a>
-          </nav>
-        </header>
-      </div>
-      
-  </div>
+    <nav *ngIf="isLogged()" class="navbar-buttons">
+      <a *ngIf="isCandidat()" routerLink="/code" routerLinkActive="active">Code de la route</a>
+      <a *ngIf="isCandidat()" routerLink="/simulation" routerLinkActive="active">Simulation</a>
+      <a *ngIf="isCandidat()" routerLink="/auto-ecole" routerLinkActive="active">Mon Auto-École</a>
+      <a (click)="logout()">Se déconnecter</a>
+    </nav>
+  </header>
+</div>
