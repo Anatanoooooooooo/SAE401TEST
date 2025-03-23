@@ -24,6 +24,14 @@ __ADMIN__
 __AUTO-ECOLE__  
 - login : admin5, mdp : test12345
 
+### MCD
+
+
+
+### Diagramme de Classe
+
+![image](https://github.com/user-attachments/assets/e7ada240-13e0-4a6f-92be-af87f834cd88)
+
 ### Update de la SAE
 22/03/2025
 
