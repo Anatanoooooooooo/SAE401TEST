@@ -13,6 +13,17 @@ _TD2_ - _TPC_
 * [Lien pour la gestion de projet](https://docs.google.com/document/d/1JaFwPhuZbUzCGFzK4dZ75tG-1MoBLAszoyxJ0Cg_Mbc/edit?usp=sharing)
 * [Lien pour le figma](https://www.figma.com/design/l19bbzA2DafIB0htEvGu4w/Maquette-LOET-Auto-Ecole?node-id=0-1&t=9OHEUjKttR7XU7hg-1)
 
+### COMPTE
+
+__CANDIDAT__  
+- login : test, mdp : test123
+
+__ADMIN__  
+- login : admin12, mdp : test1234
+
+__AUTO-ECOLE__  
+- login : admin5, mdp : test12345
+
 ### Update de la SAE
 22/03/2025
 

@@ -8,7 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent},
   { path: '**', redirectTo: '/home' } // Redirection par défaut
 ];
 

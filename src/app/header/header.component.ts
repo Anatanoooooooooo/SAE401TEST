@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   showHeader: boolean = true;
+  hideHeader: boolean = false;
   private noHeaderRoutes: string[] = ['/login']; // Routes sans header
 
   constructor(private router: Router) {}
