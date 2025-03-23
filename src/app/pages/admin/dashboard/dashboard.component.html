@@ -1,0 +1,29 @@
+<div class="d-flex">
+
+      <!-- Sidebar -->
+      <nav class="sidebar bg-warning p-3 position-relative">
+        <ul class="nav flex-column mt-5">
+          <li class="nav-item">
+            <a class="nav-link text-dark fw-bold" routerLink="/candidat">CANDIDAT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark fw-bold" routerLink="/auto-ecole">AUTO-ÉCOLE</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="main">
+        <div class="dashboard">
+      <h2>DASHBOARD</h2>
+      <button class="add-profile">Ajouter profil</button>
+      <br>
+      <div class="profile-list">
+        <div *ngFor="let profile of profiles" class="profile-card">
+          <span class="icon">👤</span>
+          <div class="actions">
+            <button (click)="editProfile(profile)" class="edit-btn">Modifier profil</button>
+            <button (click)="deleteProfile(profile)" class="delete-btn">Supprimer profil</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
