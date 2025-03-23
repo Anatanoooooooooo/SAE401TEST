@@ -1,0 +1,92 @@
+<div class="background">
+  
+    <main class="main-bg">
+      <div class="dashboard-container">
+        <!-- Colonne gauche -->
+        <div class="left-column">
+          <div class="greeting">Salut <strong>{{ nom }}</strong></div>
+  
+          <div class="card">
+            <h2 class="title">Code de la route</h2>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 53%"></div>
+            </div>
+            <p class="progress-text">53% de progression</p>
+  
+            <h3 class="subtitle">Mes derniers résultats</h3>
+            <div class="results">
+              <div class="result">
+                <span>Thème 1</span><span>16/03</span
+                ><span class="score green">19/20</span>
+              </div>
+              <div class="result">
+                <span>Thème 2</span><span>16/03</span
+                ><span class="score green">15/20</span>
+              </div>
+              <div class="result">
+                <span>Thème 3</span><span>16/03</span
+                ><span class="score yellow">10/20</span>
+              </div>
+              <div class="result">
+                <span>Thème 4</span><span>16/03</span
+                ><span class="score red">1/20</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Colonne droite -->
+        <div class="card right-column">
+          <button routerLink="/examen" class="examen-btn">
+            <span class="arrow"></span> <span>Examen Blanc</span>
+          </button>
+  
+          <h2 class="title">Évaluation du code de la route</h2>
+          <div class="progress-bar long">
+            <div class="progress-fill green" style="width: 53%"></div>
+          </div>
+          <p class="progress-text">
+            Vous êtes à <strong>53%</strong>, continuez, plus que 27% à valider !
+          </p>
+  
+          <div class="grid-cards">
+            <div class="revise-block">
+              <img src="/panneaux.png" alt="Panneaux" />
+              <h3>Les Panneaux</h3>
+              <ul>
+                <li>Signalisation</li>
+                <li>Interdiction</li>
+                <li>Priorité</li>
+                <li>Danger</li>
+              </ul>
+              <button class="revise-btn">Réviser</button>
+            </div>
+  
+            <div class="revise-block">
+              <img src="/pietons.png" alt="Usagers" />
+              <h3>Autres usagers</h3>
+              <ul>
+                <li>Piétons</li>
+                <li>Deux-roues</li>
+                <li>Transports</li>
+                <li>Enfants</li>
+              </ul>
+              <button class="revise-btn">Réviser</button>
+            </div>
+  
+            <div class="revise-block">
+              <img src="/autoroutee.png" alt="Routes" />
+              <h3>Les Routes</h3>
+              <ul>
+                <li>Autoroutes</li>
+                <li>Voie rapide</li>
+                <li>Intersection</li>
+                <li>Chaussées</li>
+              </ul>
+              <button class="revise-btn">Réviser</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>

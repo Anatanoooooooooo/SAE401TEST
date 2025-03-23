@@ -1,6 +1,8 @@
 <div *ngIf="showHeader">
   <header class="d-flex justify-content-between align-items-center">
-    <img src="logo_blanc.png" alt="LOTE logo" class="logo" />
+    <a routerLink="/home">
+      <img src="logo_blanc.png" alt="LOTE logo" class="logo" />
+    </a>
     <div *ngIf="!isLogged()" class="d-flex gap-3">
       <button class="btn btn-connexion rounded-pill px-4 py-2" routerLink="/login" routerLinkActive="active">Se connecter</button>
       <button class="btn btn-inscription rounded-pill px-4 py-2">S’inscrire</button>
@@ -10,7 +12,7 @@
       <a *ngIf="isCandidat()" routerLink="/simulation" routerLinkActive="active">Simulation</a>
       <a *ngIf="isCandidat()" routerLink="/auto-ecole" routerLinkActive="active">Mon Auto-École</a>
       <a *ngIf="isAdmin()" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      <a (click)="logout()">Se déconnecter</a>
+      <a (click)="logout()" class="logout">Se déconnecter</a>
     </nav>
   </header>
 </div>

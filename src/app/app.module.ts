@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AjoutProfileComponent } from './pages/admin/ajout-profile/ajout-profile.component';
 import { ModifierProfileComponent } from './pages/admin/modifier-profile/modifier-profile.component';
+import { DashboardCandidatComponent } from './pages/candidat/dashboard-candidat/dashboard-candidat.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ModifierProfileComponent } from './pages/admin/modifier-profile/modifie
     HeaderComponent,
     FooterComponent,
     AjoutProfileComponent,
-    ModifierProfileComponent
+    ModifierProfileComponent,
+    DashboardCandidatComponent
   ],
   imports: [
     BrowserModule,

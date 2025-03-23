@@ -1,0 +1,430 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: radial-gradient(circle at 90% 50%, #FFF5E8 28%, #FBEBBB 28%, #ECC50F 28%, #FFF5E8 33%, #F9E7A9 33%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .navbar-content {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .navbar-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navbar-buttons button {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+  
+  .navbar-buttons .logout {
+    background-color: #facc15;
+    color: black;
+  }
+  
+  .navbar-buttons button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  
+  /* MAIN */
+  .main-bg {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1300px;
+  }
+  
+  /* COLONNE GAUCHE */
+  .left-column {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .greeting {
+    background-color: black;
+    color: white;
+    padding: 12px 40px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 9999px;
+    margin-top: -40px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  /* CARD */
+  .card {
+    background-color: white;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100%;
+  }
+  
+  .right-column {
+    flex: 1;
+  }
+  
+  /* TITRES & TEXTES */
+  .title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .subtitle {
+    font-weight: 700;
+    margin: 20px 0 10px;
+  }
+  
+  .progress-text {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  
+  /* BARRES DE PROGRESSION */
+  .progress-bar {
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background-color: #facc15;
+    transition: width 0.5s ease;
+  }
+  
+  .progress-fill.green {
+    background-color: #22c55e;
+  }
+  
+  /* RÉSULTATS */
+  .results .result {
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .score {
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 6px;
+    color: white;
+  }
+  
+  .score.green {
+    background-color: #22c55e;
+  }
+  
+  .score.yellow {
+    background-color: #facc15;
+    color: black;
+  }
+  
+  .score.red {
+    background-color: #ef4444;
+  }
+  
+  /* EXAMEN BLANC */
+  .examen-btn {
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #facc15;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    font-size: 1.1rem;
+  }
+  
+  .examen-btn .arrow {
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-right: 28px solid black;
+    margin-right: -8px;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  /* BLOCS DE RÉVISION */
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .revise-block {
+    text-align: center;
+  }
+  
+  .revise-block img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .revise-block h3 {
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .revise-block ul {
+    text-align: left;
+    font-size: 0.875rem;
+    margin: 10px 0;
+    padding-left: 20px;
+  }
+  
+  .revise-block li::before {
+    content: "✔ ";
+    color: #facc15;
+  }
+  
+  .revise-btn {
+    background-color: #facc15;
+    padding: 6px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .revise-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  /* FLÈCHE DE RETOUR */
+  .back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .back-btn:hover {
+    transform: translateX(-5px);
+  }
+  
+  /* ORGANISATION DES BLOCS */
+  .exam-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .exam-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 220px;
+    text-align: center;
+  }
+  
+  .exam-box.yellow {
+    background-color: #facc15;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  .objectif-label {
+    background-color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .score-big {
+    font-size: 2.2rem;
+    font-weight: 800;
+  }
+  
+  .score-big span {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  /* IMAGE THÈME FAIBLE */
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  
+  .image-wrapper img {
+    width: 220px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .score-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #ef4444;
+    color: white;
+    padding: 4px 10px;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  
+  /* BOUTON FAIRE UN EXAMEN */
+  .exam-action {
+    background-color: #facc15;
+    color: black;
+    font-weight: 800;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .exam-action:hover {
+    transform: scale(1.05);
+  }
+  .navbar-buttons a {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-buttons a.logout {
+    background-color: #facc15;
+    color: black;
+  }
+  
+  .navbar-buttons a:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  .logo img {
+    height: 70px; /* augmente un peu */
+  }
+  .greeting {
+    font-size: 2rem;
+    padding: 16px 40px;
+    font-weight: 800;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 9999px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+  .examen-btn {
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #facc15;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .examen-btn .arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-right: 20px solid black;
+    margin-right: 10px;
+    border-radius: 4px 0 0 4px;
+  }
+  .background {
+    background: radial-gradient(circle at 90% 50%, #FFF5E8 28%, #FBEBBB 28%, #ECC50F 28%, #FFF5E8 33%, #F9E7A9 33%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
