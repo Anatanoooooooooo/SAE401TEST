@@ -10,7 +10,7 @@
     <nav *ngIf="isLogged()" class="navbar-buttons">
       <a *ngIf="isCandidat()" routerLink="/code" routerLinkActive="active">Code de la route</a>
       <a *ngIf="isCandidat()" routerLink="/simulation" routerLinkActive="active">Simulation</a>
-      <a *ngIf="isCandidat()" routerLink="/auto-ecole" routerLinkActive="active">Mon Auto-École</a>
+      <a *ngIf="isCandidat()" routerLink="/dashboard-candidat" routerLinkActive="active">Mon Auto-École</a>
       <a *ngIf="isAdmin()" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a (click)="logout()" class="logout">Se déconnecter</a>
     </nav>

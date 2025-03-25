@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AjoutProfileComponent } from './pages/admin/ajout-profile/ajout-profile.component';
 import { ModifierProfileComponent } from './pages/admin/modifier-profile/modifier-profile.component';
 import { DashboardCandidatComponent } from './pages/candidat/dashboard-candidat/dashboard-candidat.component';
+import { AvisEleveComponent } from './pages/candidat/avis-eleve/avis-eleve.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DashboardCandidatComponent } from './pages/candidat/dashboard-candidat/
     FooterComponent,
     AjoutProfileComponent,
     ModifierProfileComponent,
-    DashboardCandidatComponent
+    DashboardCandidatComponent,
+    AvisEleveComponent
   ],
   imports: [
     BrowserModule,
