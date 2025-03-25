@@ -1,1 +1,133 @@
-<p>modifier-profile works!</p>
+<div class="d-flex">
+
+      <!-- Sidebar -->
+  <nav class="sidebar bg-warning p-3 position-relative">
+    <ul class="nav flex-column mt-5">
+      <li class="nav-item">
+        <a class="nav-link text-dark fw-bold" routerLink="/candidat">CANDIDAT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark fw-bold" routerLink="/auto-ecole">AUTO-ÉCOLE</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content flex-grow-1 p-4">
+    <!-- Header -->
+    <div class="header bg-dark text-warning text-center py-3 rounded shadow">
+      <h2>LOTE</h2>
+    </div>
+    <h2>Modifier un Profil</h2>
+  
+    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+      <!-- Sélection du type de profil -->
+      <div class="form-group">
+        <div class="col-md-6">
+        <label>Type de Profil</label>
+        <select [(ngModel)]="selectedType" name="typeProfil" class="form-control" (change)="loadProfile()">
+          <option value="candidat">Candidat</option>
+          <option value="autoecole">Auto-école</option>
+        </select>
+        </div>
+      </div>
+  
+      <!-- Champs pour Candidat -->
+      <div *ngIf="selectedType === 'candidat'">
+        <div class="col-md-6">
+          <label class="fw-bold">Nom</label>
+          <input type="text" [(ngModel)]="formDataCandidat.nom" name="nom" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Prénom</label>
+          <input type="text" [(ngModel)]="formDataCandidat.prenom" name="prenom" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Rue</label>
+          <input type="text" [(ngModel)]="formDataCandidat.adresse_rue" name="adresse_rue" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Code Postal</label>
+          <input type="text" [(ngModel)]="formDataCandidat.adresse_cp" name="adresse_cp" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Ville</label>
+          <input type="text" [(ngModel)]="formDataCandidat.adresse_ville" name="adresse_ville" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Email</label>
+          <input type="email" [(ngModel)]="formDataCandidat.mail" name="mail" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Téléphone</label>
+          <input type="tel" [(ngModel)]="formDataCandidat.telephone" name="telephone" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+        <label class="fw-bold">Date de naissance</label>
+        <input type="email" [(ngModel)]="formDataCandidat.date_naissance" name="date_naissance" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label class="fw-bold">NEPH</label>
+        <input type="tel" [(ngModel)]="formDataCandidat.NEPH" name="NEPH" class="form-control" required>
+      </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Login</label>
+          <input type="text" [(ngModel)]="formDataCandidat.login" name="login" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Mot de passe</label>
+          <input type="password" [(ngModel)]="formDataCandidat.mdp" name="mdp" class="form-control" required>
+        </div>
+      </div>
+  
+      <!-- Champs pour Auto-école -->
+      <div *ngIf="selectedType === 'autoecole'">
+        <div class="col-md-6">
+          <label class="fw-bold">Nom</label>
+          <input type="text" [(ngModel)]="formDataAutoecole.nom" name="nom" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Prénom</label>
+          <input type="text" [(ngModel)]="formDataAutoecole.prenom" name="prenom" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Nom Auto-école</label>
+          <input type="text" [(ngModel)]="formDataAutoecole.nom_ae" name="nom_ae" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Rue</label>
+          <input type="text" [(ngModel)]="formDataAutoecole.adresse_rue" name="adresse_rue" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Code Postal</label>
+          <input type="text" [(ngModel)]="formDataAutoecole.adresse_cp" name="adresse_cp" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Ville</label>
+          <input type="text" [(ngModel)]="formDataAutoecole.adresse_ville" name="adresse_ville" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Email</label>
+          <input type="email" [(ngModel)]="formDataAutoecole.mail" name="mail" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Téléphone</label>
+          <input type="tel" [(ngModel)]="formDataAutoecole.telephone" name="telephone" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Login</label>
+          <input type="text" [(ngModel)]="formDataAutoecole.login" name="login" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="fw-bold">Mot de passe</label>
+          <input type="password" [(ngModel)]="formDataAutoecole.mdp" name="mdp" class="form-control" required>
+        </div>
+      </div>
+  
+      <!-- Boutons de contrôle -->
+      <div class="form-actions">
+        <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Modifier</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+      </div>
+    </form>
+  </div>

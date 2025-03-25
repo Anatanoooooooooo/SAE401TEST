@@ -15,7 +15,7 @@ const routes: Routes = [
   //ADMIN
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'ajout-profile', component: AjoutProfileComponent, canActivate: [AuthGuard] },
-  { path: 'modifier-profile', component: ModifierProfileComponent, canActivate: [AuthGuard] },
+  { path: 'modifier-profile/:id_personne', component: ModifierProfileComponent, canActivate: [AuthGuard] },
   //CANDIDAT
   { path: 'dashboard-candidat', component: DashboardCandidatComponent, canActivate: [AuthGuard] },
   //SPAWN

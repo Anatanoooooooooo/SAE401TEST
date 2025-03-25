@@ -1,99 +1,144 @@
 <div class="d-flex">
-    <!-- Sidebar -->
-    <nav class="sidebar bg-warning p-3 position-relative">
-      <ul class="nav flex-column mt-5">
-        <li class="nav-item">
-          <a class="nav-link text-dark fw-bold" routerLink="/candidat">CANDIDAT</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark fw-bold" routerLink="/auto-ecole">AUTO-ÉCOLE</a>
-        </li>
-      </ul>
-    </nav>
-  
-    <!-- Main Content -->
-    <div class="main-content flex-grow-1 p-4">
-      <!-- Header -->
-      <div class="header bg-dark text-warning text-center py-3 rounded shadow">
-        <h2>Élote Auto-École</h2>
-      </div>
-  
-      <!-- Profile Section -->
-      <div class="profile-card bg-light p-4 mt-4 shadow rounded">
-        <h3 class="text-dark text-center">👤 {{ nomProfile }}</h3>
-        <form>
-          <div class="row g-3 mt-3">
-            <!-- Nom -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="fw-bold">Nom</label>
-                <input type="text" [(ngModel)]="nom" name="nom" class="form-control">
-              </div>
-            </div>
-  
-            <!-- Prénom -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="fw-bold">Prénom</label>
-                <input type="text" [(ngModel)]="prenom" name="prenom" class="form-control">
-              </div>
-            </div>
-  
-            <!-- Adresse -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="fw-bold">Adresse</label>
-                <input type="text" [(ngModel)]="adresse" name="adresse" class="form-control">
-              </div>
-            </div>
-  
-            <!-- Code Postal -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="fw-bold">Code postale</label>
-                <input type="text" [(ngModel)]="codePostale" name="codePostale" class="form-control">
-              </div>
-            </div>
-  
-            <!-- Email -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="fw-bold">Mail</label>
-                <input type="email" [(ngModel)]="mail" name="mail" class="form-control">
-              </div>
-            </div>
-  
-            <!-- Téléphone -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="fw-bold">Téléphone</label>
-                <input type="tel" [(ngModel)]="telephone" name="telephone" class="form-control">
-              </div>
-            </div>
-  
-            <!-- Login -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="fw-bold">Login</label>
-                <input type="text" [(ngModel)]="login" name="login" class="form-control">
-              </div>
-            </div>
-  
-            <!-- Mot de passe -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="fw-bold">Mot de passe</label>
-                <input type="password" [(ngModel)]="password" name="password" class="form-control">
-              </div>
-            </div>
-          </div>
-        </form>
-  
-        <!-- Confirmation Buttons -->
-        <div class="text-center mt-4">
-          <button class="btn btn-warning fw-bold px-4 me-2" (click)="confirmer()">Confirmez</button>
-          <button class="btn btn-secondary fw-bold px-4" (click)="retour()">Retour</button>
+  <!-- Sidebar -->
+  <nav class="sidebar bg-warning p-3 position-relative">
+    <ul class="nav flex-column mt-5">
+      <li class="nav-item">
+        <a class="nav-link text-dark fw-bold" routerLink="/candidat">CANDIDAT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark fw-bold" routerLink="/auto-ecole">AUTO-ÉCOLE</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content flex-grow-1 p-4">
+    <!-- Header -->
+    <div class="header bg-dark text-warning text-center py-3 rounded shadow">
+      <h2>LOTE</h2>
+    </div>
+
+    <!-- Profil Section -->
+    <div class="profile-card bg-light p-4 mt-4 shadow rounded">
+      <h3 class="text-dark text-center">👤 {{ nomProfil }}</h3>
+      <form (ngSubmit)="onSubmit()" #dataForm="ngForm">
+        <!-- Type de profil -->
+        <div class="form-group">
+          <div class="row">
+          <div class="col-md-6">
+          <label class="fw-bold">Type de profil</label>
+          <select [(ngModel)]="selectedType" name="typeProfil" class="form-control" (change)="onTypeChange()">
+            <option value="candidat">Candidat</option>
+            <option value="autoecole">Auto-école</option>
+          </select>
         </div>
       </div>
     </div>
+    
+
+        <!-- Champs dynamiques -->
+        <div class="row g-3 mt-3">
+          <!-- Section "candidat" -->
+          <div *ngIf="selectedType === 'candidat'">
+            <div class="col-md-6">
+              <label class="fw-bold">Nom</label>
+              <input type="text" [(ngModel)]="formDataCandidat.nom" name="nom" class="form-control" required>
+            </div>
+          </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Prénom</label>
+              <input type="text" [(ngModel)]="formDataCandidat.prenom" name="prenom" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Rue</label>
+              <input type="text" [(ngModel)]="formDataCandidat.adresse_rue" name="adresse_rue" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Code Postal</label>
+              <input type="text" [(ngModel)]="formDataCandidat.adresse_cp" name="adresse_cp" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Ville</label>
+              <input type="text" [(ngModel)]="formDataCandidat.adresse_ville" name="adresse_ville" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Email</label>
+              <input type="email" [(ngModel)]="formDataCandidat.mail" name="mail" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Téléphone</label>
+              <input type="tel" [(ngModel)]="formDataCandidat.telephone" name="telephone" class="form-control" required>
+            </div>
+            
+            <div class="col-md-6">
+            <label class="fw-bold">Date de naissance</label>
+            <input type="email" [(ngModel)]="formDataCandidat.date_naissance" name="date_naissance" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="fw-bold">NEPH</label>
+            <input type="tel" [(ngModel)]="formDataCandidat.NEPH" name="NEPH" class="form-control" required>
+          </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Login</label>
+              <input type="text" [(ngModel)]="formDataCandidat.login" name="login" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Mot de passe</label>
+              <input type="password" [(ngModel)]="formDataCandidat.mdp" name="mdp" class="form-control" required>
+            </div>
+          
+
+          <!-- Section "autoecole" -->
+          <div *ngIf="selectedType === 'autoecole'">
+            <div class="col-md-6">
+              <label class="fw-bold">Nom</label>
+              <input type="text" [(ngModel)]="formDataAutoecole.nom" name="nom" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Prénom</label>
+              <input type="text" [(ngModel)]="formDataAutoecole.prenom" name="prenom" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Nom Auto-école</label>
+              <input type="text" [(ngModel)]="formDataAutoecole.nom_ae" name="nom_ae" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Rue</label>
+              <input type="text" [(ngModel)]="formDataAutoecole.adresse_rue" name="adresse_rue" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Code Postal</label>
+              <input type="text" [(ngModel)]="formDataAutoecole.adresse_cp" name="adresse_cp" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Ville</label>
+              <input type="text" [(ngModel)]="formDataAutoecole.adresse_ville" name="adresse_ville" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Email</label>
+              <input type="email" [(ngModel)]="formDataAutoecole.mail" name="mail" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Téléphone</label>
+              <input type="tel" [(ngModel)]="formDataAutoecole.telephone" name="telephone" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Login</label>
+              <input type="text" [(ngModel)]="formDataAutoecole.login" name="login" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="fw-bold">Mot de passe</label>
+              <input type="password" [(ngModel)]="formDataAutoecole.mdp" name="mdp" class="form-control" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Confirmation Buttons -->
+        <div class="text-center mt-4">
+          <button class="btn btn-warning fw-bold px-4 me-2" [disabled]="!dataForm.form.valid">Confirmez</button>
+          <button class="btn btn-secondary fw-bold px-4" (click)="retour()">Retour</button>
+        </div>
+      </form>
+    </div>
   </div>
+</div>
