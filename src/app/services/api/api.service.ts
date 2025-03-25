@@ -30,7 +30,7 @@ getDataAutoecole(): Observable<any> {
 
 // Méthode GET pour récupérer les avis (Avis)
 getDataAvis(): Observable<any> {
-  return this.http.get<any>(`${this.apiURL}/getAE.php`);
+  return this.http.get<any>(`${this.apiURL}/getAvis.php`);
 }
 
 // Méthode GET pour récupérer l'ID pour modifier(Candidat)
@@ -61,7 +61,7 @@ postDataAutoecole(credentials: any): Observable<any> {
 
 // Méthode POST pour envoyer des données (Avis)
 postDataAvis(credentials: any): Observable<any> {
-  return this.http.post<any>(`${this.apiURL}/personneAEAjout.php`, credentials);
+  return this.http.post<any>(`${this.apiURL}/PostAvis.php`, credentials);
 }
 
 // Méthode PUT pour envoyer des données (profile Candidat)
@@ -76,7 +76,7 @@ updateDataAutoecole(credentials: any): Observable<any> {
 
 // Méthode PUT pour envoyer des données (Avis)
 updateDataAvis(credentials: any): Observable<any> {
-  return this.http.put<any>(`${this.apiURL}/personneAEModif.php`, credentials);
+  return this.http.put<any>(`${this.apiURL}/PutAvis.php`, credentials);
 }
 
 // Méthode DELETE pour Candidat
@@ -91,7 +91,7 @@ deleteDataAutoecole(id_personne: number): Observable<any> {
 
 // Méthode DELETE pour Avis
 deleteDataAvis(id_avis: number): Observable<any> {
-  return this.http.delete<any>(`${this.apiURL}/personneAESuppr.php?id_personne=${id_avis}`);
+  return this.http.delete<any>(`${this.apiURL}/DeleteAvis`);
 }
 
 

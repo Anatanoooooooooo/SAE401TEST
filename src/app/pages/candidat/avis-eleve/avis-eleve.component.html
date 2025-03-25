@@ -1,20 +1,25 @@
- <main class="main-bg">
+<main class="main-bg">
     <div class="fiche-container">
-      
-      <!-- Fiche Auto-École -->
-      <section class="fiche-card">
-        <img src="/autoecole_rungis.jpg" alt="Photo auto-école">
-        <h3>AUTO ECOLE RUNGIS <span>4.5 ⭐</span></h3>
-        <p>Ceci est une description d’auto-école très détaillée</p>
-      </section>
-  
-      <!-- Bloc Avis -->
+
+         <!-- Bloc Avis -->
       <section class="review-box">
         <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
-        <textarea placeholder="Écrire un avis..."></textarea>
-        <button>Envoyer</button>
+        <textarea [(ngModel)]="nouveauAvis.titre" placeholder="Écrire un Titre..."></textarea>
+        <textarea [(ngModel)]="nouveauAvis.texte" placeholder="Écrire un avis..."></textarea>
+        <button (click)="ajouterAvis(nouveauAvis)">Envoyer</button>
       </section>
-  
+
+
+            <!-- Bloc Avis -->
+            <section class="review-box">
+                <div *ngFor="let avis of avis" class="avis-item">
+                  <h4>{{ avis.titre }}</h4>
+                  <p>{{ avis.texte }}</p>
+                  <button (click)="modifierAvis(avis)">Modifier</button>
+                  <button (click)="supprimerAvis(avis.id)">Supprimer</button>
+                </div>
+        
+              </section>
+     
     </div>
   </main>
-  
