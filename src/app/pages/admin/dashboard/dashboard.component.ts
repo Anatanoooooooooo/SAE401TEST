@@ -53,8 +53,8 @@ export class DashboardComponent {
   }
 
   // Modifier un profil
-  modifProfil(profil: Profil | ProfilAE): void {
-    this.router.navigate(['/modifier-profile', profil.id_personne]); // Redirection avec l'ID
+  modifProfil(profil: any, apiType: string) {
+    this.router.navigate(['/modifier-profile', profil.id_personne, apiType]); // Transmission des paramètres
   }
   
 

@@ -23,7 +23,7 @@
         <div *ngFor="let profil of profiles" class="profile-card">
           <span class="icon">👤 {{ profil.nom }} {{ profil.prenom }}</span>
           <div class="actions">
-            <button (click)="modifProfil(profil)" class="edit-btn">Modifier</button>
+            <button (click)="modifProfil(profil, 'candidat')" class="edit-btn">Modifier</button>
             <button (click)="supprProfil(profil, 'candidat')" class="delete-btn">Supprimer</button>
           </div>
         </div>
@@ -35,7 +35,7 @@
         <div *ngFor="let profilAE of profilesAE" class="profile-card">
           <span class="icon">🏫 {{ profilAE.nom_ae }}</span>
           <div class="actions">
-            <button (click)="modifProfil(profilAE)" class="edit-btn">Modifier</button>
+            <button (click)="modifProfil(profilAE, 'autoecole')" class="edit-btn">Modifier</button>
             <button (click)="supprProfil(profilAE, 'autoecole')" class="delete-btn">Supprimer</button>
           </div>
         </div>

@@ -54,12 +54,12 @@ postDataAutoecole(credentials: any): Observable<any> {
 }
 
 // Méthode PUT pour envoyer des données (profile Candidat)
-putDataCandidat(credentials: any): Observable<any> {
+updateDataCandidat(credentials: any): Observable<any> {
   return this.http.put<any>(`${this.apiURL}/personneCModif.php`, credentials);
 }
 
 // Méthode PUT pour envoyer des données (profile Autoecole)
-putDataAutoecole(credentials: any): Observable<any> {
+updateDataAutoecole(credentials: any): Observable<any> {
   return this.http.put<any>(`${this.apiURL}/personneAEModif.php`, credentials);
 }
 
