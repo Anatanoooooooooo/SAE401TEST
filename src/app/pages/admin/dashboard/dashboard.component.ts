@@ -25,14 +25,16 @@ export class DashboardComponent {
   // Charger les candidats
   loadProfiles() {
     this.apiService.getDataCandidats().subscribe(
-      (data: Profil[]) => {
-        this.profiles = data;
+      (data: any[]) => {
+        console.log('Données des candidats reçues :', data);
+        this.profiles = data; // Assurez-vous que chaque élément contient les bonnes propriétés
       },
       error => {
-        console.error('Erreur lors de la récupération des candidats', error);
+        console.error('Erreur lors de la récupération des candidats :', error);
       }
     );
   }
+  
 
   // Charger les auto-écoles
   loadProfilesAE() {
@@ -56,36 +58,40 @@ export class DashboardComponent {
   }
   
 
-  supprProfil(profil: Profil | ProfilAE) {
-    if (confirm(`Voulez-vous vraiment supprimer le profil ID: ${profil.id_personne} ?`)) {
-      // Vérifiez le type de profil pour appeler la bonne méthode
-      if (profil instanceof Profil) {
-        // Supprimer un candidat
-        this.apiService.deleteDataCandidat({ id_personne: profil.id_personne }).subscribe(
-          (response) => {
-              console.log('API Response:', response);
-              alert('Candidat supprimé avec succès');
-              this.loadProfiles(); // Recharger la liste des candidats
-          },
-          (error) => {
-              console.error('Erreur lors de la suppression du candidat', error);
-          }
-      );
-      
-      } else if (profil instanceof ProfilAE) {
-        // Supprimer une auto-école
-        this.apiService.deleteDataAutoecole({ id_personne: profil.id_personne }).subscribe(
-          () => {
-            alert('Auto-école supprimée avec succès');
-            this.loadProfilesAE(); // Recharger la liste des auto-écoles
+  supprProfil(profil: any, apiType: string) {
+    console.log('Objet reçu pour suppression :', profil);
+  
+    if (!profil.id_personne) {
+      console.error('ID du profil manquant');
+      return;
+    }
+  
+    if (confirm(`Voulez-vous vraiment supprimer l'élément ID: ${profil.id_personne} ?`)) {
+      if (apiType === 'candidat') {
+        console.log('Suppression d\'un candidat avec l\'ID :', profil.id_personne);
+        this.apiService.deleteDataCandidat(profil.id_personne).subscribe(
+          response => {
+            console.log('Réponse réussie de l\'API :', response);
+            alert('Candidat supprimé avec succès');
+            this.loadProfiles();
           },
           error => {
-            console.error('Erreur lors de la suppression de l\'auto-école', error);
+            console.error('Erreur lors de la suppression du candidat :', error);
+          }
+        );
+      } else if (apiType === 'autoecole') {
+        console.log('Suppression d\'une auto-école avec l\'ID :', profil.id_personne);
+        this.apiService.deleteDataAutoecole(profil.id_personne).subscribe(
+          response => {
+            console.log('Réponse réussie de l\'API :', response);
+            alert('Auto-école supprimée avec succès');
+            this.loadProfilesAE();
+          },
+          error => {
+            console.error('Erreur lors de la suppression de l\'auto-école :', error);
           }
         );
       }
-  
     }
   }
-}
-
+}  

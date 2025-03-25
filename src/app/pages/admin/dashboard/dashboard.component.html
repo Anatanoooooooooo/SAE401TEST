@@ -24,9 +24,9 @@
           <span class="icon">👤 {{ profil.nom }} {{ profil.prenom }}</span>
           <div class="actions">
             <button (click)="modifProfil(profil)" class="edit-btn">Modifier</button>
-            <button (click)="supprProfil(profil)" class="delete-btn">Supprimer</button>
+            <button (click)="supprProfil(profil, 'candidat')" class="delete-btn">Supprimer</button>
           </div>
-        </div>a
+        </div>
       </div>
 
       <!-- Liste des auto-écoles -->
@@ -36,7 +36,7 @@
           <span class="icon">🏫 {{ profilAE.nom_ae }}</span>
           <div class="actions">
             <button (click)="modifProfil(profilAE)" class="edit-btn">Modifier</button>
-            <button (click)="supprProfil(profilAE)" class="delete-btn">Supprimer</button>
+            <button (click)="supprProfil(profilAE, 'autoecole')" class="delete-btn">Supprimer</button>
           </div>
         </div>
       </div>

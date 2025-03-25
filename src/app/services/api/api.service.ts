@@ -63,15 +63,16 @@ putDataAutoecole(credentials: any): Observable<any> {
   return this.http.put<any>(`${this.apiURL}/personneAEModif.php`, credentials);
 }
 
-// Méthode DELETE pour envoyer des données (profile Candidat)
-deleteDataCandidat(credentials: any): Observable<any> {
-  return this.http.delete<any>(`${this.apiURL}/personneCSuppr.php`, credentials);
+// Méthode DELETE pour Candidat
+deleteDataCandidat(id_personne: number): Observable<any> {
+  return this.http.delete<any>(`${this.apiURL}/personneCSuppr.php?id_personne=${id_personne}`);
 }
 
-// Méthode DELETE pour envoyer des données (profile Autoecole)
-deleteDataAutoecole(credentials: any): Observable<any> {
-  return this.http.delete<any>(`${this.apiURL}/personneAESuppr.php`, credentials);
+// Méthode DELETE pour Autoécole
+deleteDataAutoecole(id_personne: number): Observable<any> {
+  return this.http.delete<any>(`${this.apiURL}/personneAESuppr.php?id_personne=${id_personne}`);
 }
+
 
 
 
