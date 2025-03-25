@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class ApiService {
 
-private apiURL = 'http://localhost/tp4/api/src'; // Remplace par l'URL de ton API PHP
+private apiURL = 'http://localhost/tp4/api/src';
 constructor(private http: HttpClient) { }
 
 // Méthode GET pour récupérer des données (login)

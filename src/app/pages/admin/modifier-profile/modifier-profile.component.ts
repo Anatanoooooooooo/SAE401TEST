@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../services/api/api.service';
-import { Profil } from '../../../models/profil';
-import { ProfilAE } from '../../../models/profil-ae';
 
 @Component({
   selector: 'app-modifier-profile',
