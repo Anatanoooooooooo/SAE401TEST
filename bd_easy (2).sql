@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 23 mars 2025 à 20:59
+-- Généré le : mar. 25 mars 2025 à 21:06
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -48,16 +48,23 @@ INSERT INTO `admin` (`id`, `id_personne`) VALUES
 CREATE TABLE `autoecole` (
   `id` int(11) NOT NULL,
   `id_personne` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `adresse` varchar(255) NOT NULL
+  `nom_ae` varchar(255) NOT NULL,
+  `adresse_rue` varchar(255) NOT NULL,
+  `adresse_cp` int(5) NOT NULL,
+  `adresse_ville` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `telephone` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `autoecole`
 --
 
-INSERT INTO `autoecole` (`id`, `id_personne`, `nom`, `adresse`) VALUES
-(1, 4, 'ORNIKAR', 'RUE ORNIKAR');
+INSERT INTO `autoecole` (`id`, `id_personne`, `nom_ae`, `adresse_rue`, `adresse_cp`, `adresse_ville`, `mail`, `telephone`) VALUES
+(1, 4, 'ORNIKAR', 'RUE ORNIKAR', 0, '', '', 0),
+(2, 18, 'CARAUTOO', 'rue du generale leclerc', 93180, 'VIlle', 'carauto@gmail.com', 168907462),
+(3, 19, 'CARAUTOO', 'rue du generale leclerc', 93180, 'VIlle', 'carauto@gmail.com', 168907462),
+(5, 34, 'TestAuto', 'TestAuto', 78900, 'TestAuto', 'testauto@gmail.com', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -83,8 +90,10 @@ CREATE TABLE `candidat` (
   `id` int(11) NOT NULL,
   `id_personne` int(11) NOT NULL,
   `adresse_rue` varchar(255) DEFAULT NULL,
-  `adresse_cp` varchar(10) DEFAULT NULL,
+  `adresse_cp` int(5) DEFAULT NULL,
   `adresse_ville` varchar(255) DEFAULT NULL,
+  `mail` varchar(255) NOT NULL,
+  `telephone` int(10) NOT NULL,
   `date_naissance` date DEFAULT NULL,
   `NEPH` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -93,8 +102,14 @@ CREATE TABLE `candidat` (
 -- Déchargement des données de la table `candidat`
 --
 
-INSERT INTO `candidat` (`id`, `id_personne`, `adresse_rue`, `adresse_cp`, `adresse_ville`, `date_naissance`, `NEPH`) VALUES
-(1, 2, 'rue', '77', NULL, NULL, NULL);
+INSERT INTO `candidat` (`id`, `id_personne`, `adresse_rue`, `adresse_cp`, `adresse_ville`, `mail`, `telephone`, `date_naissance`, `NEPH`) VALUES
+(1, 2, 'rue', 77, NULL, '', 0, NULL, NULL),
+(3, 11, 'rue courneveuille', 23, 'Perdus', 'luie@gmail.com', 606600606, '2024-03-23', 2147483647),
+(10, 30, 'TestCandidat', 78900, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647),
+(11, 31, 'TestCandidat', 78901, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647),
+(12, 32, 'TestCandidat', 78901, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647),
+(13, 33, 'TestAuto', 78900, 'TestAuto', 'testauto@gmail.com', 2147483647, '2000-04-07', 2147483647),
+(14, 35, 'TestCandidat', 78900, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -117,7 +132,16 @@ CREATE TABLE `personne` (
 INSERT INTO `personne` (`id`, `login`, `mdp`, `nom`, `prenom`) VALUES
 (2, 'test', '$2y$10$Oi6wTZmTDIbnm77dUs21/OlCjFOXyTTpGDjfrwpOd5OnwiXBirf1u', 'TEST', 'TesT'),
 (3, 'admin12', '$2y$10$K44veM/pkzaP6bdhNGzyFuomtUMgep0ekQJ4SGhl/FJrLx71cqgPK', 'TCT', 'CTC'),
-(4, 'admin5', '$2y$10$A11XUsbr0tN8qaMZ6ca84uwsGxWZcOBWOXsd0EIhL6yrSPZBXi.4W', 'PC', 'CP');
+(4, 'admin5', '$2y$10$A11XUsbr0tN8qaMZ6ca84uwsGxWZcOBWOXsd0EIhL6yrSPZBXi.4W', 'PC', 'CP'),
+(11, 'ZGdez', '$2y$10$A9XM9ozAPY4E4R037wVMhOJAg1hwN6eiVquq2SAu8p9ZP/CkK9yyO', 'Zuiz', 'Gernandez'),
+(18, 'carauto', '$2y$10$1RblH7aIC3kKOGsL9o2txu0rzYCkaeb8uFU5UCbw8Pu/LMvdwVzdq', 'alloo', 'allo'),
+(19, 'carauto', '$2y$10$c2BlVWNrVOcHly5mfqslRebHYbkkKjBVtZB/wM9cqrQuvi4LSmOgy', 'alloo', 'allo'),
+(30, 'testcandidat', '$2y$10$BP20YOx6KZotyzlQQhgq3.IBh/roiCjQM9eoI6hhY6VpMlybtQ2ue', 'TestCandidat', 'TestCandidat'),
+(31, 'testcandidat', '$2y$10$7ff3luoI6/HJ7K/DmEa4a.NIFvkf0TXjFhIz6Dyw3x3e6n2GaJYOi', 'TestCandidat', 'TestCandidat'),
+(32, 'testcandidat', '$2y$10$T4FYn98Cvjg5uOWoxMlw6OhNr6DOmbv2/5.5BvTLmRvS8QLo9mQXm', 'TestCandidat', 'TestCandidat'),
+(33, 'testauto', '$2y$10$aF.jp6F43p9UK3CvtA/nwu0SO/5PlJJcGa6ctssCvWrr0SCiywdpG', 'TestAuto', 'TestAuto'),
+(34, 'testauto', '$2y$10$wGEOJ70a0pwRjIATqCRQOODBQb2S3WOsDYHCOEJDEuLRctplirRD6', 'TestAuto', 'TestAuto'),
+(35, 'test', '$2y$10$yf45iCZb1ZiXxmhyQEAk7OgE30vNK4LwB6dky8iwQyQbAOJUX/HVC', 'TestCandidat', 'TestCandidat');
 
 -- --------------------------------------------------------
 
@@ -212,7 +236,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `autoecole`
 --
 ALTER TABLE `autoecole`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `avis`
@@ -224,13 +248,13 @@ ALTER TABLE `avis`
 -- AUTO_INCREMENT pour la table `candidat`
 --
 ALTER TABLE `candidat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT pour la table `score_examen_code`
