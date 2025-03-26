@@ -41,6 +41,7 @@ export class AjoutProfileComponent {
         error => {
           console.error('Erreur lors de l\'ajout du candidat', error);
           alert('Erreur lors de l\'ajout du candidat.');
+          this.router.navigate(['dashboard']);
         }
       );
     } else if (this.selectedType === 'autoecole') {

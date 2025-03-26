@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../services/api/api.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ModifierProfileComponent implements OnInit {
   formDataAutoecole: any = {};
   apiType: string = '';
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id_personne')); // Conversion de l'ID en number
@@ -51,6 +51,7 @@ export class ModifierProfileComponent implements OnInit {
         },
         (error) => {
           console.error('Erreur lors de la mise à jour du candidat :', error);
+          this.router.navigate(['dashboard']);
         }
       );
     } else if (this.apiType === 'autoecole') {
