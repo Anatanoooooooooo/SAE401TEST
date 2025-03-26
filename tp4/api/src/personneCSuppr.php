@@ -1,27 +1,20 @@
 <?php
-//Va savoir pourquoi, mais ça fonctionne comme ça 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-    http_response_code(200); // Réponse OK
-    exit();
-}
+header("Access-Control-Allow-Origin: *"); // POUR TOUS
+header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS"); // Méthodes autorisées
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
 // Inclure le fichier de connexion
-require "../config/connexion_db.php"; // Charge la variable $conn
+require "../config/connexion_db.php";
 
 try {
-    // Récupération des données DELETE
-    $data = json_decode(file_get_contents("php://input"), true);
-
-    // Vérifiez si l'ID est fourni
-    if (!isset($data['id_personne'])) {
+    // Récupération de l'ID dans les paramètres de la requête
+    if (!isset($_GET['id_personne'])) {
         http_response_code(400);
         echo json_encode(["message" => "ID de la personne non fourni"]);
         exit();
     }
 
-    $id_personne = $data['id_personne'];
+    $id_personne = intval($_GET['id_personne']);
 
     // Étape 1 : Supprimer les informations de la table `candidat`
     $sqlCandidat = "DELETE FROM candidat WHERE id_personne = :id_personne";

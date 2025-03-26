@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 25 mars 2025 à 21:06
+-- Généré le : mer. 26 mars 2025 à 00:27
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -76,9 +76,17 @@ CREATE TABLE `avis` (
   `id_avis` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `texte` text NOT NULL,
-  `date_publication` date NOT NULL,
-  `id_eleve` int(11) NOT NULL
+  `date_publication` datetime NOT NULL,
+  `id_candidat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `avis`
+--
+
+INSERT INTO `avis` (`id_avis`, `titre`, `texte`, `date_publication`, `id_candidat`) VALUES
+(2, 'Test', 'Test', '0000-00-00 00:00:00', 0),
+(7, 'TEST', 'TEST', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -107,9 +115,8 @@ INSERT INTO `candidat` (`id`, `id_personne`, `adresse_rue`, `adresse_cp`, `adres
 (3, 11, 'rue courneveuille', 23, 'Perdus', 'luie@gmail.com', 606600606, '2024-03-23', 2147483647),
 (10, 30, 'TestCandidat', 78900, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647),
 (11, 31, 'TestCandidat', 78901, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647),
-(12, 32, 'TestCandidat', 78901, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647),
-(13, 33, 'TestAuto', 78900, 'TestAuto', 'testauto@gmail.com', 2147483647, '2000-04-07', 2147483647),
-(14, 35, 'TestCandidat', 78900, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647);
+(16, 37, 'TestCandidat', 78900, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2000-04-07', 2147483647),
+(18, 39, 'salut', 78901, 'TestCandidat', 'testcandidat@gmail.com', 2147483647, '2025-03-14', 1234567898);
 
 -- --------------------------------------------------------
 
@@ -138,10 +145,9 @@ INSERT INTO `personne` (`id`, `login`, `mdp`, `nom`, `prenom`) VALUES
 (19, 'carauto', '$2y$10$c2BlVWNrVOcHly5mfqslRebHYbkkKjBVtZB/wM9cqrQuvi4LSmOgy', 'alloo', 'allo'),
 (30, 'testcandidat', '$2y$10$BP20YOx6KZotyzlQQhgq3.IBh/roiCjQM9eoI6hhY6VpMlybtQ2ue', 'TestCandidat', 'TestCandidat'),
 (31, 'testcandidat', '$2y$10$7ff3luoI6/HJ7K/DmEa4a.NIFvkf0TXjFhIz6Dyw3x3e6n2GaJYOi', 'TestCandidat', 'TestCandidat'),
-(32, 'testcandidat', '$2y$10$T4FYn98Cvjg5uOWoxMlw6OhNr6DOmbv2/5.5BvTLmRvS8QLo9mQXm', 'TestCandidat', 'TestCandidat'),
-(33, 'testauto', '$2y$10$aF.jp6F43p9UK3CvtA/nwu0SO/5PlJJcGa6ctssCvWrr0SCiywdpG', 'TestAuto', 'TestAuto'),
 (34, 'testauto', '$2y$10$wGEOJ70a0pwRjIATqCRQOODBQb2S3WOsDYHCOEJDEuLRctplirRD6', 'TestAuto', 'TestAuto'),
-(35, 'test', '$2y$10$yf45iCZb1ZiXxmhyQEAk7OgE30vNK4LwB6dky8iwQyQbAOJUX/HVC', 'TestCandidat', 'TestCandidat');
+(37, 'testcandidat', '$2y$10$OONllsHqTniMYStikNlQvuAtE.HNEEh0zuI6aKTuEhLNl9hc0kid6', 'TestCandidat', 'TestCandidat'),
+(39, 'alice ', '$2y$10$ONf4Wp2QoDWOgRx2uc0x/.87OFswo6yVQobiGg6zCCYl2wMjKe2Qq', 'efs', 'sefse');
 
 -- --------------------------------------------------------
 
@@ -193,7 +199,7 @@ ALTER TABLE `autoecole`
 --
 ALTER TABLE `avis`
   ADD PRIMARY KEY (`id_avis`),
-  ADD KEY `id_eleve` (`id_eleve`);
+  ADD KEY `id_eleve` (`id_candidat`);
 
 --
 -- Index pour la table `candidat`
@@ -242,19 +248,19 @@ ALTER TABLE `autoecole`
 -- AUTO_INCREMENT pour la table `avis`
 --
 ALTER TABLE `avis`
-  MODIFY `id_avis` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_avis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `candidat`
 --
 ALTER TABLE `candidat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT pour la table `score_examen_code`
@@ -283,12 +289,6 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `autoecole`
   ADD CONSTRAINT `autoecole_ibfk_2` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `avis`
---
-ALTER TABLE `avis`
-  ADD CONSTRAINT `avis_ibfk_1` FOREIGN KEY (`id_eleve`) REFERENCES `candidat` (`id_personne`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `candidat`
